@@ -99,9 +99,7 @@ $(function() {
          });
          // test feed entry is filled
          it("has at least a single .entry element within the .feed container", function() {
-            let entry = $('.entry');
-            let feed = $('.feed');
-            expect((entry.feed).length).toBeGreaterThan(0);
+            expect($('feed.entry').length).toBeGreaterThan(0);
           });
     });
 
@@ -120,8 +118,7 @@ $(function() {
             loadFeed(0, function(){
                 // store the old feed HTML class in the dedicated variable
                 oldFeed = $('.feed').html();
-                loadFeed(function(){
-                    done();
+                loadFeed(1, done);
                 });
             });
 
