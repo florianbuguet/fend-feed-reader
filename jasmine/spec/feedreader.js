@@ -93,13 +93,11 @@ $(function() {
          */
         //test the asynchronous function loadFeed() 
          beforeEach(function(done){
-            loadFeed(function(){
-                done();
-            });
+            loadFeed(0,done);
          });
          // test feed entry is filled
          it("has at least a single .entry element within the .feed container", function() {
-            expect($('feed.entry').length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
           });
     });
 
@@ -122,7 +120,6 @@ $(function() {
                 });
             });
 
-         });
         // compare the two feeds and test if different
          it("verify that content is changed upon each loadFeed() load", function() {
             newFeed = $('.feed').html();
